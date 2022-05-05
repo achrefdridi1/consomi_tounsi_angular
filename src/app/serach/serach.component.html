@@ -1,0 +1,58 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
+<div class="container">
+  <div class="row">
+             <div id="custom-search-input">
+                              <div class="input-group col-md-12" style="text-align: center">
+                                  <input type="text" class="search-query form-control" placeholder="Search With idRayon"  name="ID" [(ngModel)]="idRayon"/>
+                                  <span class="input-group-btn">
+                                      <button class="btn btn-danger" type="button" (click)="findRayonById()">
+                                          <span class=" glyphicon glyphicon-search"></span>
+                                      </button>
+                                  </span>
+                              </div>
+                          </div>
+  </div>
+  </div>
+
+
+<div class="container">
+  <div class="card shadow mb-4">                   
+    <div class="card-body"> 
+      <div id="htmlData">
+     <table class="table table-striped">
+        <tr> <th>Id</th><th>libelle Rayon</th> <th>code Rayon</th> </tr>
+              <tbody *ngFor="let rayon of rayons">
+                       <tr >
+                          <td>{{rayon.idRayon}}</td>
+                          <td>{{rayon.libelleRayon}}</td>
+                          <td>{{rayon.codeRayon}}</td>
+                          <td><a class="btn btn-danger" (click)="deletRayon(rayon.idRayon)">Supprimer</a></td> 
+                          <td><a class="btn btn-success" routerLink="/update/{{rayon.idRayon}}">Modifier</a></td>
+
+                        </tr>                                    
+               </tbody>
+    </table>
+  </div>
+    <div><button type="submit" (click)="openPDF()" class="btn btn-success">Export this table to PDF </button></div>
+    </div>
+  </div>
+</div> 
+
+
+
+<div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+          <p class="card-category"> Total number of rayons in our boutique</p>
+          <h3 class="card-title">{{ insc?.length }}</h3>
+      </div>
+      <div class="card-footer">
+      </div>
+  </div>
+</div>
