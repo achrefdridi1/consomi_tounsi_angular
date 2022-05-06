@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page d'ajout d'un livreur</title>
+    </head>
+
+
+    <body>
+
+        <fieldset>
+            <legend>Ajouter un Livreur</legend>
+        <div id="after_submit"></div>
+            <form id="contact_form" action="" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <label class="required" for="nom"> Nom:</label><br />
+                <input id="familyname" class="input"  [(ngModel)]="livreur.lastName" [ngModelOptions]="{standalone: true}" name="familyname" type="text" value="" size="30" /><br />
+                <span id="familyname_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="name"> Prenom:</label><br />
+                <input id="name" class="input"  [(ngModel)]="livreur.firstName" [ngModelOptions]="{standalone: true}" name="name" type="text" value="" size="30" /><br />
+                <span id="name_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="email"> Email:</label><br />
+                <input type="email" id="email" [(ngModel)]="livreur.email" [ngModelOptions]="{standalone: true}" pattern=".+@gmail\.com" size="30" required>
+                <span id="email_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="cin"> N° Carte d'identité:</label><br />
+                <input type="tel" id="cin" [(ngModel)]="livreur.cin" [ngModelOptions]="{standalone: true}" name="cin"  [maxLength]="8">
+                <span id="cin_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="score"> Score:</label><br />
+                <input type="number" id="score" [(ngModel)]="livreur.score" [ngModelOptions]="{standalone: true}" name="score" min="1" max="5">
+                <span id="cin_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="date">Date de naissance:</label><br />
+                <input type="date" id="start" [(ngModel)]="livreur.dateNaissance" [ngModelOptions]="{standalone: true}" name="date" value="1995-01-01" min="1940-01-01" max="2004-12-31"><br />
+                <span id ="message_validation" class="error_message"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="charge">Charge de travail :</label><br />
+                <input type="number" id="start" [(ngModel)]="livreur.charge_travail" [ngModelOptions]="{standalone: true}" name="charge"><br />
+                <span id ="charge_validation" class="error_message"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="salaire">Salaire :</label><br />
+                <input type="number" id="start" [(ngModel)]="livreur.salaire" [ngModelOptions]="{standalone: true}" name="salaire"><br />
+                <span id ="salaire_validation" class="error_message"></span>
+            </div>
+
+            <br />
+            <button class="favorite styled" type="submit" (click)="registerNow()" routerLink="/retrievelivreur"> Ajouter </button>
+        </form>
+    </fieldset>
+    </body>
+
+</html>

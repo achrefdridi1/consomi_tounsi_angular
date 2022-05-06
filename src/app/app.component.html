@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    
+    <h1>Gestion Livraisons</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/home'"> Acceuil </a>
+      <a mat-button [routerLink]="'/registerlivreur'"> Ajouter Livreur </a>
+      <a mat-button [routerLink]="'/retrievelivreur'"> Lister Livreurs </a>
+      <a mat-button [routerLink]="'/ajouterreclamation'"> Ajouter Reclamation </a>
+      <a mat-button [routerLink]="'/retrievereclamation'"> Lister Reclamations </a>
+      <a mat-button [routerLink]="'/stats'"> Statistiques</a>
+      
+
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<br>
+<br>
+<router-outlet></router-outlet>

@@ -1,0 +1,52 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row">
+               <div id="custom-search-input">
+                                <div class="input-group col-md-12" style="text-align: center">
+                                    <input type="tel" class="search-query form-control" placeholder="   Entrer ID de la Reclamation  "  name="id" [(ngModel)]="id"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="button" (click)="findReclams()" >
+                                            <span class=" glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+    </div>
+    </div>
+<div class="container">
+<div id="htmlData">
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date de reclamation</th>
+            <th>UserEmail</th>
+            <th>Description</th>
+            <th>Supprimer</th>
+            <th>Modifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reclamation of reclamations">
+            <td>{{reclamation.reclamation_id}}</td>
+            <td>{{reclamation.dateReclamation|date:'shortDate'}}</td>
+            <td>{{reclamation.userEmail}}</td>
+            <td>{{reclamation.description}}</td>
+            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="delReclams(reclamation.reclamation_id)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+            <td class="text-center"><button class="btn btn-info btn-xs"  routerLink="/editrec/{{reclamation.reclamation_id}}"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>
+          </tr>
+    </tbody>
+    </table>
+    </div>
+</div>
+</div>
+<div class="pdf">
+<button type="submit" (click)="openPDF()" class="btn btn-success">Export this table to PDF </button>
+</div>

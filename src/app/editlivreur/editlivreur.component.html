@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page de modification d'un livreur</title>
+    </head>
+
+
+    <body>
+
+        <fieldset>
+            <legend>Modifier Livreur</legend>
+        <div id="after_submit"></div>
+            <form [formGroup]="editlivreur" id="contact_form">  
+            <div class="row">
+                <label class="required" for="nom"> Nom:</label><br />
+                <input formControlName="lastName"  id="familyname" class="input"  name="familyname" type="text" value="" size="30" /><br />
+                <span id="familyname_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="name"> Prenom:</label><br />
+                <input id="name"formControlName="firstName" class="input"   name="name" type="text" value="" size="30" /><br />
+                <span id="name_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="email"> Email:</label><br />
+                <input type="email" formControlName="email" id="email"  pattern=".+@gmail\.com" size="30" required>
+                <span id="email_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="cin"> N° Carte d'identité:</label><br />
+                <input type="tel" id="cin" formControlName="cin" name="cin"  [maxLength]="8">
+                <span id="cin_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="score"> Score:</label><br />
+                <input type="number" id="score"  formControlName="score" name="score" min="1" max="5">
+                <span id="cin_validation" class="error_message"></span>
+            </div>
+            <div class="row">
+                <label class="required" for="date">Date de naissance:</label><br />
+                <input type="date" id="start"  formControlName="dateNaissance" name="dateNaissance" value="1995-01-01" min="1940-01-01" max="2004-12-31"><br />
+                <span id ="message_validation" class="error_message"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="charge">Charge de travail :</label><br />
+                <input type="number" id="start" formControlName="charge_travail"  name="charge_travail"><br />
+                <span id ="charge_validation" class="error_message"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="salaire">Salaire :</label><br />
+                <input type="number" id="start"  formControlName="salaire" name="salaire"><br />
+                <span id ="salaire_validation" class="error_message"></span>
+            </div>
+
+            <br />
+            <button class="favorite styled" type="submit" (click)="doUpdate()" routerLink="/retrievelivreur"> Modifier </button>
+        </form>
+    </fieldset>
+    </body>
+</html>
