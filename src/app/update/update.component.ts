@@ -1,9 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Rayon } from '../rayon';
-import { RayonService } from '../rayon.service';
 
+import { RayonService } from '../rayon.service';
 
 
 @Component({
@@ -13,38 +13,35 @@ import { RayonService } from '../rayon.service';
 })
 export class UpdateComponent implements OnInit {
 
-
-  editrayon=new FormGroup({
-    libelleRayon: new FormControl(''),
-    codeRayon: new FormControl(''),
-
-  })
+  constructor(private service:RayonService, private route:ActivatedRoute) { }
   
+  message : any;
+  rayons: any;
+   update=new FormGroup({
+     //id: new FormControl(''),
+    libelleRayon : new FormControl(''),
+    codeRayon : new FormControl(''),
+  });
 
-  constructor(private service:RayonService, private route:ActivatedRoute) {}
+     
 
- 
-
-  public UpdateRayon(){
-
-    let resp= this.service.UpdateRayon1(this.route.snapshot.params['idRayon'],this.editrayon.value).subscribe((result)=>{
-      console.log(result);
-    });
+  public doUpdatee(){
+    console.log(this.route.snapshot.params['idRayon']);
+      let resp = this.service.updateRayon1(this.route.snapshot.params['idRayon'],this.update.value).subscribe((result)=>{
+        console.log (result);
+      })
   }
 
   ngOnInit(): void {
-
-    console.log(this.service.getRayonById(this.route.snapshot.params['idRayon']).subscribe());
-    this.service.getRayonById(this.route.snapshot.params['idRayon']).subscribe((result : any)=>{
-      this.editrayon= new FormGroup({
-        libelleRayon : new FormControl(result['libelleRayon']),
-        codeRayon: new FormControl(result['codeRayon']),
-      })
-    })
-
-  }
-  
-
- 
-
+    
+    this.service.getRayonById1(this.route.snapshot.params['idRayon']).subscribe((result :any) =>{
+        this.update=new FormGroup(
+          {// id : new FormControl(result['livreur_id']),
+            libelleRayon : new FormControl(result['libelleRayon']),
+            codeRayon : new FormControl(result['codeRayon']), 
+          });  
+      }
+    )};
 }
+
+

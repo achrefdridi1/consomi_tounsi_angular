@@ -17,7 +17,7 @@ import { RetrievelivreurComponent } from './retrievelivreur/retrievelivreur.comp
 import { StatsComponent } from './stats/stats.component';
 import { AddreclamationComponent } from './addreclamation/addreclamation.component';
 import { EditreclamationComponent } from './editreclamation/editreclamation.component';
-
+import { DatePipe } from '@angular/common';
 import { RetrievereclamationComponent } from './retrievereclamation/retrievereclamation.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 
@@ -48,7 +48,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -39,8 +39,8 @@ export class EditlivreurComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   // console.log(this.route.snapshot.params['livreur_id']);
-    this.service.getLivreurById(this.route.snapshot.params['livreur_id']).subscribe((result :any) =>{
+      // console.log(this.route.snapshot.params['livreur_id']);
+   this.service.getLivreurById(this.route.snapshot.params['livreur_id']).subscribe((result :any) =>{
         let event = new Date(result.dateNaissance);
         let x=this.datepipe.transform(event,"yyyy-MM-dd");
         result.dateNaissance=x;
@@ -57,5 +57,6 @@ export class EditlivreurComponent implements OnInit {
           });  
       }
     )};
-}
+  }
+
 

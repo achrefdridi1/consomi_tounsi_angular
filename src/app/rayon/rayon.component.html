@@ -2,18 +2,20 @@
   <div>
     <h2>Ajouter un rayon :</h2>             
   </div>
-       <form > 
+
+  <div id="after_submit">
+    <form id="contact_form" action="" method="POST" enctype="multipart/form-data">
        
 
         <div class="col-sm-4 col-md-4 col-lg-4" >
           <label >libelle Rayon</label>
           <input  type="text" [(ngModel)]= "rayon.libelleRayon"  
-              name="libelleRayon" class="form-control">
+          id="libelleRayon" name="libelleRayon" class="form-control">
         </div>  
         <div class="col-sm-2 col-md-2 col-lg-2">
              <label >code rayon</label>
              <input   type="text"  [(ngModel)]="rayon.codeRayon"  
-                 name="idRayon" class="form-control">
+             id="codeRayon" name="codeRayon" class="form-control">
             </div>
 
             <div class="mt-2">

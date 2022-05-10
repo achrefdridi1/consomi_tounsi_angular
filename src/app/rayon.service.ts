@@ -23,18 +23,26 @@ export class RayonService {
   return this.http.get(" http://localhost:8081/SpringMVC/rayon/getRayon/"+idRayon);
 
  }
+
+ public getRayonById1(idRayon:number){
+
+  return this.http.get(" http://localhost:8081/SpringMVC/rayon/retrieve-rayon/"+idRayon);
+
+ }
  public deleteRayon(idRayon:number){
   return this.http.delete(" http://localhost:8081/SpringMVC/rayon/delete-rayon/"+idRayon);
 
   
  }
 
- public UpdateRayon1(idRayon:number,rayon){
+ public updateRayon1(idRayon:number,rayon){
 
   return this.http.put("http://localhost:8081/SpringMVC/rayon/update-rayon2/"+idRayon,rayon)
 
  }
 
-
+ public countRayons(){
+  return this.http.get("http://localhost:8081/SpringMVC/rayon/countrayons");
+}
 
 }

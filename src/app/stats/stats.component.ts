@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LivreurRegistrationService } from '../livreur-registration.service';
+import { RayonService } from '../rayon.service';
 import { ReclamationRegistrationService } from '../reclamation-registration.service';
 
 @Component({
@@ -9,11 +10,12 @@ import { ReclamationRegistrationService } from '../reclamation-registration.serv
 })
 export class StatsComponent implements OnInit {
 
-  constructor(private service:LivreurRegistrationService,private serviice:ReclamationRegistrationService) { }
+  constructor(private service:LivreurRegistrationService,private serviice:ReclamationRegistrationService,private servicee:RayonService) { }
 
   ngOnInit(): void {
     this.cLivreurs();
     this.cReclamations();
+    this.cRayon();
   }
 
   public cLivreurs(){
@@ -31,6 +33,15 @@ export class StatsComponent implements OnInit {
       document.getElementById('nbrrec').innerHTML=y;
     })
 }
+
+public cRayon(){
+  this.servicee.countRayons().subscribe((result2)=>{
+    var y:string;
+    y=JSON.stringify(result2);
+    document.getElementById('nbrray').innerHTML=y;
+  })
+}
+
 
 
 }

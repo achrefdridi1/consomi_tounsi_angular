@@ -1,28 +1,27 @@
-<div class="container">
-    <div>
-      <h2>Modifier un rayon :</h2>             
-    </div>
-         <form [formGroup]="editrayon"> 
-  
-          <div class="col-sm-4 col-md-4 col-lg-4" >
-            <label >libelle Rayon</label>
-            <input  type="text" formControlName="libelleRayon"  
-                name="libelleRayon" class="form-control">
-          </div>  
-          <div class="col-sm-2 col-md-2 col-lg-2">
-               <label >code rayon</label>
-               <input   type="text"  formControlName="codeRayon"  
-                   name="idRayon" class="form-control">
-              </div>
-  
-              <div class="mt-2">
-                 <button type="submit"  (click)="UpdateRayon()" routerLink="/update" class="btn btn-success">submit</button>
-                  
-              </div> 
-  
-  
-               
-         </form>
-  </div>
-  
-      
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page de modification d'un rayon</title>
+    </head>
+
+
+    <body>
+
+        <fieldset>
+            <legend>Modifier rayon</legend>
+        <div id="after_submit"></div>
+            <form [formGroup]="update" id="contact_form">  
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="nom"> libelleRayon:</label><br />
+                <input formControlName="libelleRayon"  id="libelleRayon"  name="libelleRayon"  class="form-control" /><br />
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="name"> codeRayon:</label><br />
+                <input id="codeRayon" formControlName="codeRayon" class="form-control"   name="codeRayon" /><br />
+            </div>
+             <br />
+            <button class="favorite styled" type="submit" (click)="doUpdatee()" routerLink="/serach"> Modifier </button>
+        </form>
+    </fieldset>
+    </body>
+</html>
