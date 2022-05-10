@@ -1,0 +1,64 @@
+<div class="container">
+    <div>
+      <h2>Ajouter un livreur :</h2>             
+    </div>
+         <form > 
+         
+  
+          <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Nom:</label>
+            <input  type="text" [(ngModel)]= "livreur.lastName"  
+                name="livreurlastName" class="form-control">
+          </div>  
+          <div class="col-sm-2 col-md-2 col-lg-2">
+               <label >Prenom:</label>
+               <input   type="text"  [(ngModel)]="livreur.firstName"  
+                   name="livreurfirstName" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4" >
+                <label >Email:</label>
+                <input  type="email" [(ngModel)]= "livreur.email"  
+                    name="livreuremail" class="form-control">
+              </div> 
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="cin"> N° Carte d'identité:</label><br />
+                <input type="tel" id="cin" [(ngModel)]="livreur.cin"
+                name="livreurcin" class="form-control">
+                
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="score"> Score:</label><br />
+                <input type="number" id="score" [(ngModel)]="livreur.score"
+                name="livreurscore" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="date">Date de naissance:</label><br />
+                <input type="date" id="start" [(ngModel)]="livreur.dateNaissance" 
+                name="livreurdate" class="form-control">
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="charge">Charge de travail :</label><br />
+                <input type="number" id="start" [(ngModel)]="livreur.charge_travail" 
+                name="livreurcharge" class="form-control">
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="salaire">Salaire :</label><br />
+                <input type="number" id="start" [(ngModel)]="livreur.salaire" 
+                name="livreursalaire" class="form-control">
+            </div>
+  
+              <div class="mt-2">
+                <button type="submit" (click)="registerNow()" class="btn btn-success" routerLink="/retrievelivreur"> Ajouter </button>
+                
+              </div> 
+         </form>
+  </div>
+  
+      
+
+
+
+
+

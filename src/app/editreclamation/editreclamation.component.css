@@ -1,0 +1,63 @@
+body{
+	width: 750px;
+}
+h1{
+	color:black;
+	font-family: Caflisch Script, Adobe Poetica, Sanvito, Ex Ponto, Snell Roundhand, Zapf-Chancery, cursive;
+	font-weight:bold;
+	text-align: center;
+}
+h2{
+	color:orange;
+	font-family: Caflisch Script, Adobe Poetica, Sanvito, Ex Ponto, Snell Roundhand, Zapf-Chancery, cursive;
+	font-weight:bold;
+	text-align: center;
+}
+form{
+	border: 1px solid rgb(0, 0, 0);
+	padding:10px;
+	background-color:#D80227;
+}
+p{
+	width:400px;
+	padding-left: 305px;
+	text-align: left;
+	vertical-align: top;
+}
+label.left{
+	float: left;
+	margin-left: -305px;
+	font-weight:bold;
+}
+legend {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-size: 50px;
+    font-variant: small-caps;
+  }
+
+  input {
+    font-size: 20px;
+
+  }
+
+  label {
+
+    font-size: 18px;
+
+  }
+
+  button {
+    background-color: #17161C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  button:hover{
+    background-color: green;
+  }
+

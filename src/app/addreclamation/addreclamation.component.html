@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+      <h2>Ajouter un Reclamation :</h2>             
+    </div>
+         <form > 
+         
+  
+          <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >User email</label>
+            <input  type="text" [(ngModel)]= "reclamation.userEmail"  
+                name="userEmail" class="form-control">
+          </div>  
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="date">Date de naissance:</label><br />
+                <input type="date" id="start" [(ngModel)]="reclamation.dateReclamation" 
+                name="dateReclamation" class="form-control">
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label class="required" for="charge">Description:</label><br />
+                <input type="textarea" id="start" [(ngModel)]="reclamation.description" 
+                name="description" class="form-control">
+            </div>
+  
+              <div class="mt-2">
+                <button type="submit" (click)="addNow()" class="btn btn-success" routerLink="/retrievereclamation"> Ajouter </button>
+                
+              </div> 
+         </form>
+  </div>
+  
+      
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page de modification d'une reclamation</title>
+    </head>
+
+
+    <body>
+
+        <fieldset>
+            <legend>Modifier une Reclamation</legend>
+        <div id="after_submit"></div>
+            <form [formGroup]="editreclamation" id="contact_form" >
+            
+            <div class="row">
+                <label class="required" for="email"> User Email:</label><br />
+                <input type="email" formControlName="userEmail" id="email"  pattern=".+@gmail\.com" size="30" required>
+                <span id="email_validation" class="error_message"></span>
+            </div>
+            
+            <div class="row">
+                <label class="required" for="date">Date Reclamation:</label><br />
+                <input type="date" id="start" formControlName="dateReclamation"  name="date" value="2022-01-01" min="2021-04-01" max="2022-05-01"><br />
+                <span id ="message_validation" class="error_message"></span>
+            </div>
+
+            <div class="row">
+                <label class="required" for="description">Description:</label><br />
+                <textarea id="textarea" rows="10" cols="33" formControlName="description" name="description" >Description </textarea>
+                <span id ="message_validation" class="error_message"></span>
+            </div>
+
+            <br />
+            <button class="favorite styled" type="submit" (click)="Update()" routerLink="/retrievereclamation"> Modifier </button>
+        </form>
+    </fieldset>
+    </body>
+
+</html>
+

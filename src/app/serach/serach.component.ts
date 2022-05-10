@@ -7,13 +7,22 @@ import { RayonService } from '../rayon.service';
 @Component({
   selector: 'app-serach',
   templateUrl: './serach.component.html',
-  styleUrls: ['./serach.component.css']
-})
+  styleUrls: ['./serach.component.css'],
+  template: `
+
+  <ul>
+      <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
+    </ul>
+               
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    `
+    })
 export class SerachComponent implements OnInit {
 
   rayons:any;
   idRayon:any;
   insc: Array<Rayon> = [];
+  p: number = 1;
   constructor(private service:RayonService) {}
 
   public deletRayon(idRayon:number){
