@@ -1,0 +1,25 @@
+.users {
+  padding: 10px 0px;
+  margin-left: 21px;
+
+}
+
+.user {
+  color: green;
+    font-size: 23px;
+    padding: 10px 0px;
+  
+}
+
+.online {
+  color: black;
+}
+
+.offline {
+  color: #080808;
+}
+img{
+  margin-top: -7px;
+  margin-right: 5px;
+  border-radius: 50%;
+}

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+#login-form {
+  border-radius: 20px;
+  margin-top: 89px;
+  height: 50%;
+  background-color: #b9c0c3;
+  padding-top: 9%;
+  font-weight: 100;
+}
+

@@ -1,0 +1,31 @@
+.header {
+  height: 10%;
+  background: #fafafa;
+}
+
+chat-stream {
+  height: 100%;
+}
+
+.chat {
+  height: 94%;
+}
+img{
+  margin-top: -7px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+.users {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+
+.logged-in-user {
+  margin-left: 390px;
+  margin-top: 9px;
+  margin-right: 870px;
+  /* float: right; */
+  font-size: 25px;
+  padding-top: 6px;
+}

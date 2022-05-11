@@ -1,0 +1,7 @@
+<div class="users">
+  <div class="user" *ngFor="let user of users" [ngClass]="{'online' : user.isOnline}" [ngClass]="{'offline' : !user.isOnline}">
+    <img src="../../assets/auser.png" alt="Avatar" style="width:30px">
+    <span>{{user.userName}}</span>
+     <i *ngIf="user.isOnline" class="fa fa-circle" style="color: green;float: right;font-size: 16px;" aria-hidden="true"></i>
+  </div>
+</div> 

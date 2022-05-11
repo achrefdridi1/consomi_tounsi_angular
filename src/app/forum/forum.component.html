@@ -1,0 +1,174 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<script href=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"></script>
+<script href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="//unpkg.com/angular/angular.js"></script>
+<link rel="stylesheet" href="//unpkg.com/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!--like and dislike -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
+
+<!--like and dislike -->
+
+<div>
+    <app-sidebar class="sidebar"></app-sidebar>
+
+    <div class="main_content">
+            <h1>{{message}}</h1>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-7">
+                    <form>
+                        <fieldset>
+                            <legend class="text-center">Valid information is required to create a new post. <span class="req"><small>
+                                        required *</small></span></legend>
+        
+                            <div class="form-group">
+                                <label for="TitrePublication"><span class="req">* </span> Post title: <small>This will be your Post title
+                                        name</small> </label>
+                                <input required type="text" [(ngModel)]="publication.titrePublication" name="titrePublication" id="titrePublication"
+                                    class="form-control phone" maxlength="28" placeholder="Enter title..." />
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="description"><span class="req">* </span> Description: </label>
+                                <input required class="form-control" type="text" [(ngModel)]="publication.description" name="description" id="txt" required
+                                    placeholder="Enter post centent" />
+                                <div id="errFirst"></div>
+                            </div>
+        
+                            <div class="form-group">
+        
+                                  <div *ngIf="filePath && filePath !== ''">
+                                    <img [src]="filePath" [alt]="myForm.value.name" height="200" maxlength="300">
+                                  </div>
+                                  <input type="file" accept="image/*"  (change)="imagePreview($event)" />
+                            </div>
+        
+                            <div class="form-group">
+                                <input class="btn btn-success" type="submit" name="submit_reg" value="Post" (click)="addPostNow()">
+                            </div>
+                        </fieldset>
+                    </form><!-- ends register form -->
+                    <!-- second for to fiter user-->
+                </div><!-- ends col-6 -->
+        
+        
+            </div>
+        </div>
+        
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-7">
+                    <div class="card">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                        <tr *ngFor="let pub of publications  | async ">
+                            <div class="d-flex justify-content-between p-2 px-3">
+                            
+                                <div class="d-flex flex-row align-items-center"> <img src="data:image/jpeg;base64,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" width="50" class="rounded-circle">
+                                    <div class="d-flex flex-column ml-2"> 
+                                        <div class="d-flex flex-row muted-color"> <span class="font-weight-bold">Benchrifa Abdessalem</span> 
+                                        </div>
+                                        <!--span class="font-weight-bold">{{pub.user.userName}}</span--> 
+                                        <small class="text-primary">****</small>
+                                     </div>
+                                </div>
+                                <div class="d-flex flex-row mt-1 ellipsis" > 
+                                    <small class="mr-2">{{pub.dateCreation | date}}</small>
+                                    <select ng-model="choice" class="fa fa-comment-o" id="sel" >
+                                        <option></option>
+                                        <option value="pub.publicationId">&#xf044; Modify</option>
+                                        <option value="pub.publicationId" >	&#xf014; Delete</option>
+                                    </select>
+                                    <br>
+                                    </div>
+                            </div> 
+                            <div *ngIf="pub.contenuPublication">
+                            <img [src]="transform(pub.contenuPublication)" width="300" height="250" alt="" />
+                            </div>
+
+                            
+                            
+
+                            <p class="text-justify" maxlength="50">{{pub.titrePublication}} </p>
+                            <p class="text-justify">{{pub.description}} </p>
+                            
+                            
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-row icons d-flex align-items-center">
+                                    <button type="button" class="btn btn-sm btn-success" ><i class="fa fa-thumbs-up" ng-click="incrementLikes(pub)"></i></button> 
+                                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down" ng-click="incrementDislikes(pub)"></i></button>
+                                </div>
+                                <div class="d-flex flex-row muted-color"> <span>{{pub.commentsNumber}} comments</span>  </div>
+                            </div>
+                            <hr>
+                            <div class="comments">
+                                <!-- ---------------- Commentaires ICI ------------         -->
+                                    <div *ngFor="let comm of pub.commentaires">
+                                        
+                                <div class="d-flex flex-row mb-2"> 
+                                    <img src="https://filmdaily.co/wp-content/uploads/2020/09/DirtyFunnyMemes-lede72-1300x1115.jpg   " width="40" class="rounded-image">
+                                    <div class="d-flex flex-column ml-2"> <span class="name">Yassine</span> <!--{{comm.UserName}}--> 
+        
+                                        <small class="comment-text" >{{comm.contenuCommentaire}}</small>
+                                        <div class="d-flex flex-row align-items-center status"> 
+                                            <small>
+                                                <button class="btn btn-success" > Like </button> 
+                                            </small> 
+                                            <small>
+                                                <button class="btn bootstrap" > reply </button> 
+                                            </small> 
+                                            <small>
+                                                <button class="btn btn-danger" (click)="deleteComment(comm.commentaireId)" tabindex="1"> Delete </button> 
+                                            </small>
+                                            <small>18 mins</small> </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                
+                                <div class="comment-input">Your comment 
+                                    <input type="text" class="form-control" #commentaireText >
+                                    <div class="d-flex flex-row muted-color">
+                                        <span class="ml-2"> 
+                                            <button (click)="onKey(commentaireText.value,pub.publicationId)" >Comment</button>
+                                        </span>
+                                    </div>
+        
+                                    <div class="fonts"><i class="fa fa-camera"></i> </div>
+                                </div>
+                            </div>
+                        </tr>
+                            </tbody>
+                    </table>
+                        <div class="p-2">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <!------Middle-->
+
+        </div>
+    </div>
+</div>
