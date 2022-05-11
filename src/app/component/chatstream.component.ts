@@ -2,6 +2,7 @@ import {Component}            from '@angular/core';
 import {Message}              from '../data/message';
 import {AppDataService}       from '../service/appdata.service';
 import {WebSocketService}     from '../service/websocket.service';
+import { UserForumService } from '../user-forum.service';
 
 @Component({
   selector: 'chat-stream',
@@ -18,10 +19,12 @@ export class ChatStreamComponent {
   websocket: WebSocket;
 
   constructor(private appDataService: AppDataService,
-              private websocketService: WebSocketService) {
+              private websocketService: WebSocketService,
+              private service:UserForumService) {
     this.websocket = this.websocketService.createNew();
     this.loggedinUserId = this.appDataService.userId;
     this.startListening();
+    this.service.addMessage(this.message);
     
   }
 
@@ -37,7 +40,7 @@ export class ChatStreamComponent {
         console.log(this.publishedMessage);
         
       } else if (message.type == 'TYPING') {
-        if (message.from != this.loggedinUserId) {
+        if (message.sender != this.loggedinUserId) {
           this.showUserTypingIndicator(message.fromUserName);
         }
       }
@@ -50,19 +53,20 @@ export class ChatStreamComponent {
 
     let message: Message = {
       type: 'MESSAGE',
-      from: this.appDataService.userId,
+      sender: this.appDataService.userId,
       fromUserName: this.appDataService.userName,
       date: new Date(),
       message: msg
     }
     this.websocket.send(JSON.stringify(message));
+    this.service.addMessage(JSON.stringify(message));
     this.message = '';
   }
 
   sendTypeIndicator() {
     let message: Message = {
       type: 'TYPING',
-      from: this.appDataService.userId,
+      sender: this.appDataService.userId,
       fromUserName: this.appDataService.userName,
       date:null,
       message: null

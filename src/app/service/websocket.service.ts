@@ -11,6 +11,7 @@ export class WebSocketService {
 
   createNew(): WebSocket {
     this.websocket = new WebSocket(WEBSOCKET_URL);
+    
     return this.websocket;
   }
   

@@ -1,6 +1,6 @@
-export interface Message {
+export class Message {
   type: string;
-  from: number;
+  sender: number;
   date:Date;
   fromUserName: string;
   message: string;

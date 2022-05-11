@@ -14,4 +14,7 @@ export class AppService {
   listUser(): Observable<any> {
     return this.xhrhandler.doGet('user/list');
   }
+  sendPMessage( message:any){
+    return this.xhrhandler.sendPrivateMessage(message);
+  }
 }

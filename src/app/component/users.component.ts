@@ -23,7 +23,7 @@ export class UsersComponent {
     this.websocket.onopen = (event: MessageEvent) => {
       let message: Message = {
         type: 'JOINED',
-        from: this.appDataService.userId,
+        sender: this.appDataService.userId,
         fromUserName: this.appDataService.userName,
         date:null,
         message: null
@@ -38,9 +38,9 @@ export class UsersComponent {
     this.websocket.onmessage = (event: MessageEvent) => {
       let message: Message = JSON.parse(event.data);
       if (message.type == 'JOINED') {
-        this.setUserStatus(message.from, true);
+        this.setUserStatus(message.sender, true);
       } else if (message.type == 'LEFT') {
-        this.setUserStatus(message.from, false);
+        this.setUserStatus(message.sender, false);
       }
     }
   }
@@ -65,7 +65,7 @@ export class UsersComponent {
   close() {
     let message: Message = {
       type: 'LEFT',
-      from: this.appDataService.userId,
+      sender: this.appDataService.userId,
       fromUserName: this.appDataService.userName,
       date:null,
       message: null

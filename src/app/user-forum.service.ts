@@ -38,4 +38,7 @@ export class UserForumService {
   public addCommentaire(commentaire,pubId,userId){
     return this.http.post("http://localhost:8081/SpringMVC/commentaire/add-commentaire/"+pubId+"/"+userId,commentaire,{responseType:'text' as 'json'});
   }
+  public addMessage(message){
+    return this.http.post("http://localhost:8081/SpringMVC/message/add-message",message,{responseType:'text' as 'json'});
+  }
 }
